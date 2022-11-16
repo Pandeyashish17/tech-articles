@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 
 const Card = ({ data }) => {
@@ -15,23 +16,24 @@ const Card = ({ data }) => {
     social_image,
     positive_reactions_count,
   } = data;
+  const router = useRouter();
   return (
     <>
       <article className="mb-4 break-inside p-6 rounded-xl bg-white dark:bg-slate-800 flex flex-col bg-clip-border">
         <div className="flex pb-6 items-center justify-between">
-          <div className="flex">
-            <a className="inline-block mr-4" href="#">
+          <div
+            className="flex cursor-pointer"
+            onClick={() => router.push(`/user/${user.username}`)}
+          >
+            <span className="inline-block mr-4">
               <img
                 className="rounded-full max-w-none w-12 h-12"
                 src={user?.profile_image}
               />
-            </a>
+            </span>
             <div className="flex flex-col">
               <div>
-                <a
-                  className="inline-block text-lg font-bold dark:text-white"
-                  href="#"
-                >
+                <a className="inline-block text-lg font-bold dark:text-white">
                   {user?.name}
                 </a>
               </div>
@@ -42,8 +44,11 @@ const Card = ({ data }) => {
           </div>
         </div>
         <div className="flex gap-1 m-1 ">
-          {tag_list?.slice(0, 3).map((tag,i) => (
-            <span className="bg-indigo-500 text-white px-2 py-1 rounded-lg" key={i}>
+          {tag_list?.slice(0, 3).map((tag, i) => (
+            <span
+              className="bg-indigo-500 text-white px-2 py-1 rounded-lg"
+              key={i}
+            >
               {tag}
             </span>
           ))}

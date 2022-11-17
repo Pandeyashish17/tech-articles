@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -48,7 +47,7 @@ const Card = ({ data }) => {
           {tag_list?.slice(0, 2).map((tag, i) => (
             <Link
               href={`/tag/${tag}`}
-              className="bg-indigo-500 text-white px-2 py-1 rounded-lg"
+              className="bg-indigo-500 text-white px-2 py-1 rounded-lg cursor-pointer"
               key={i}
             >
               {tag}

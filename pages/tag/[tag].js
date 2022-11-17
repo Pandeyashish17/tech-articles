@@ -5,24 +5,26 @@ import Card from "../../components/Card";
 import Loading from "../../components/Loading";
 import Navbar from "../../components/Navbar";
 
-const UserPage = () => {
+const Tag = () => {
   const router = useRouter();
-  const { name } = router.query;
+  const { tag } = router.query;
+
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   console.log(data);
+
   useEffect(() => {
-    if (!name) return;
+    if (!tag) return;
     const getData = () => {
       setLoading(true);
-      axios.get(`https://dev.to/api/articles?username=${name}`).then((res) => {
+      axios.get(`https://dev.to/api/articles?tag=${tag}`).then((res) => {
         setData(res.data);
         console.log(res.data);
         setLoading(false);
       });
     };
     getData();
-  }, [name]);
+  }, [tag]);
   return (
     <>
       {loading || !data ? (
@@ -33,7 +35,7 @@ const UserPage = () => {
           <div className="bg-slate-900 min-h-screen p-2 ">
             <div className="grid place-content-center">
               <span className="text-2xl text-white capitalize mb-2 bg-indigo-700 px-4 py-2 rounded-lg">
-                {name}
+                {tag}
               </span>
             </div>
             <div className="box-border   sm:columns-1 md:columns-2 lg:columns-3 xl:columns-3 p-2 ">
@@ -48,5 +50,4 @@ const UserPage = () => {
   );
 };
 
-export default UserPage;
-
+export default Tag;

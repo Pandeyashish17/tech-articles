@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Card from "../../components/Card";
 import Loading from "../../components/Loading";
 import Navbar from "../../components/Navbar";
-import { CiTwitter } from "react-icons/ci";
+import { AiFillTwitterCircle } from "react-icons/ai";
 import { BsGithub, BsGlobe } from "react-icons/bs";
 
 const UserPage = () => {
@@ -45,7 +45,7 @@ const UserPage = () => {
                       rel="noreferrer"
                       target="_blank"
                     >
-                      <CiTwitter size={28} />
+                      <AiFillTwitterCircle size={28} color="00acee" />
                     </a>
                   )}
                   {data[0].user.github_username && (
@@ -54,7 +54,7 @@ const UserPage = () => {
                       rel="noreferrer"
                       target="_blank"
                     >
-                      <BsGithub size={28} />
+                      <BsGithub size={28} color="#121212" />
                     </a>
                   )}
                   {data[0].user.website_url && (

@@ -40,7 +40,7 @@ export default function Page() {
               {page != 1 && (
                 <button
                   className="px-2 py-4 bg-indigo-500 text-white rounded-md"
-                  onClick={() => router.back()}
+                  onClick={() =>router.push(`/?page=${page - 1}`)}
                 >
                   Previous Page
                 </button>
